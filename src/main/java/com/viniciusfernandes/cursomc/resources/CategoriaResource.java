@@ -25,6 +25,7 @@ public class CategoriaResource {
 		//ResponseEntity - tipo especial que armazena varias informaçoes http para um serviço REST
 		//o <?> quer dizer que pode ser qualquer tipo, qualquer informaçao
 		
+		
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 		
