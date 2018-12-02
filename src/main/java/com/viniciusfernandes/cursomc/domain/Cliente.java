@@ -33,9 +33,13 @@ public class Cliente implements Serializable{
 	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 	
+	@OneToMany(mappedBy="cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	@ElementCollection  //Para o JPA criar a tabela no banco relacionada aos telefones como uma entida "fraca"
 	@CollectionTable(name="TELEFONE") //@CollectionTable - para dar o nome no banco
 	private Set<String> telefones = new HashSet<>();   //Set -> é uma coleçao e garante que nao vai ter repetiçoes
+	
 	
 	public Cliente() {
 	}
@@ -104,6 +108,14 @@ public class Cliente implements Serializable{
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
 	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+ 	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+	
 
 	@Override
 	public int hashCode() {
@@ -129,6 +141,8 @@ public class Cliente implements Serializable{
 			return false;
 		return true;
 	}
+
+	
 	
 	
 }
