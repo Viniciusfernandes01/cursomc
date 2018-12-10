@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 
 
 @Entity
@@ -23,7 +21,6 @@ public class Categoria implements Serializable{
 	private Integer id;
 	private String nome;
 	
-	@JsonManagedReference   //dizer para o sistema q está ok em serializar os produtos, colocar esse Json no lado que eu quero q traga, no outro lado preciso "fechar"
 	@ManyToMany(mappedBy="categorias")  //como já foi feito em produtos, essa é uma referencia simples a lista categorias que está na objeto produto
 	private List<Produto> produtos = new ArrayList<>();
 	
